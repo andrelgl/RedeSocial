@@ -20,20 +20,20 @@ public class Grafo {
         return v;
     }
 
-    public Vertice searchVertice(String id) {
+    public Vertice searchVertice(int id) {
         for (Vertice v : this.v) {
-            if (v.getID().equals(id)) {
+            if (v.getID()== id) {
                 return v;
             }
         }
         return null;
     }
 
-    public void addVertice(String id, float peso) {
+    public void addVertice(int id, float peso) {
         v.add(new Vertice(id, peso));
     }
 
-    public void addAresta(float peso, String id, String idv1, String idv2, boolean ori) {
+    public void addAresta(float peso, int id, int idv1, int idv2, boolean ori) {
         //Busca vertice v1
         Vertice v1 = searchVertice(idv1);
         //Busca vertice v2;

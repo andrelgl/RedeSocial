@@ -3,11 +3,11 @@ package redesocial;
 public class Aresta {
 
     private float peso;
-    private String ID;
+    private int ID;
     private Vertice v1, v2;
     private boolean orientada;
 
-    public Aresta(Vertice v1, Vertice v2, float peso, String ID, boolean orientada) {
+    public Aresta(Vertice v1, Vertice v2, float peso, int ID, boolean orientada) {
         this.v1 = v1;
         this.v2 = v2;
         this.peso = peso;
@@ -31,7 +31,7 @@ public class Aresta {
         return peso;
     }
 
-    public String getID() {
+    public int getID() {
         return this.ID;
     }
 

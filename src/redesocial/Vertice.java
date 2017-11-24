@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 public class Vertice {
 
-    protected String ID;
+    protected int ID;
     protected float peso;
     ArrayList<Vertice> listaAdjacentes;
 
-    public Vertice(String ID, float peso) {
+    public Vertice(int ID, float peso) {
         this.ID = ID;
         this.peso = peso;
         this.listaAdjacentes = new ArrayList<>();
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
