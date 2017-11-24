@@ -26,10 +26,9 @@ public class AbrirArquivo {
             String linha = br.readLine();
             String lin[] = linha.split(";");
             for(int i = 0; i < this.x; i++){
-                System.out.println(lin[i]);
-                /*for(int j = 0; i < this.y; i++){
-                    this.m[i][j] = lin[j];
-                }*/
+                for(int j = 0; i < this.y; i++){
+                    this.m[i][j] = linha.split(";");
+                }
             }
             
         }
