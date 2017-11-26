@@ -33,7 +33,7 @@ public class Grafo {
         v.add(new Vertice(id, peso));
     }
 
-    public void addAresta(float peso, int id, int idv1, int idv2, boolean ori) {
+    public void addAresta(float peso, String id, int idv1, int idv2, boolean ori) {
         //Busca vertice v1
         Vertice v1 = searchVertice(idv1);
         //Busca vertice v2;

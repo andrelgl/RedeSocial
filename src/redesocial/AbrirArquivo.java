@@ -3,47 +3,44 @@ package redesocial;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AbrirArquivo {
 
-    private final String[][] m;
     private final String index;
-    private final int x;
-    private final int y;
-    private String linha;
-    private String[] teste;
+    private final ArrayList<String> table;
+    private String[] column;
+    private String[][] matrix;
+    private int cont;
 
     //construtor para criação do objeto x e y são os indexes da matriz
-    public AbrirArquivo(String ind, int x, int y) {
+    public AbrirArquivo(String ind) {
         this.index = ind;
-        this.x = x - 1;
-        this.y = y - 1;
-        m = new String[this.x][this.y];
+        this.table = new ArrayList<>();
+        this.cont = 0;
+        this.matrix = new String[428][428];
     }
 
     //metodo responsalve pela leitura do arquivo
-    public void AbrirArquivo() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(index));
-
-        while (br.ready()) {
-            for (int i = 0; i < x; i++) {
-                linha = br.readLine();
-                for (int j = 0; j < y; j++) {
-                     teste = linha.split(";");
-                     m[i][j] = teste[j];
-                }
+    private void ListaAdjacents() throws IOException {
+        try (BufferedReader br = new BufferedReader(new FileReader(index))) {
+            while (br.ready()) {
+                this.table.add(br.readLine());
             }
         }
-        br.close();
-        for (int f = 0; f < 427; f++) {
-            for (int i = 0; i < 427; i++) {
-                System.out.println(m[f][i]);
+        
+        //responsavel pela criação da lista de adjacentes
+        for (String line : this.table) {
+            this.column = line.split(";");
+            for (int i = 0; i < this.column.length; i++) {
+                matrix[cont][i] = this.column[i];
             }
-            
+            cont += 1;
         }
     }
 
-    public String[][] getMatriz() {
-        return this.m;
+    public String[][] getListaAdjacentes() throws IOException {
+        ListaAdjacents();
+        return matrix;
     }
 }
