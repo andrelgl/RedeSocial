@@ -5,15 +5,15 @@ import java.util.ArrayList;
 public class Grafo {
 
     protected ArrayList<Vertice> v;
-    protected ArrayList<Aresta> e;
+    protected ArrayList<Aresta> a;
 
     public Grafo() {
         this.v = new ArrayList();
-        this.e = new ArrayList();
+        this.a = new ArrayList();
     }
 
     public ArrayList<Aresta> getAresta() {
-        return e;
+        return a;
     }
 
     public ArrayList<Vertice> getVertice() {
@@ -38,7 +38,7 @@ public class Grafo {
         Vertice v1 = searchVertice(idv1);
         //Busca vertice v2;
         Vertice v2 = searchVertice(idv2);
-        this.e.add(new Aresta(v1, v2, peso, id, ori));
+        this.a.add(new Aresta(v1, v2, peso, id, ori));
         //quando se adciona uma aresta, deve-se atualizar a lista de adjacencias
         if (ori) {
             v1.addAdjacente(v2);
@@ -54,7 +54,7 @@ public class Grafo {
             System.out.println("ID: " + vertice.getID() + " Peso: " + vertice.getPeso());
         }
         System.out.println("Lista de arestas: ");
-        for (Aresta aresta : e) {
+        for (Aresta aresta : a) {
             System.out.println("ID: " + aresta.getID() + " Peso: " + aresta.getPeso());
         }
     }

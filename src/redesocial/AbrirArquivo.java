@@ -3,40 +3,47 @@ package redesocial;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class AbrirArquivo {
 
-    private String[][] m; 
-    private String index;
-    private int x;
-    private int y;
+    private final String[][] m;
+    private final String index;
+    private final int x;
+    private final int y;
+    private String linha;
+    private String[] teste;
 
+    //construtor para criação do objeto x e y são os indexes da matriz
     public AbrirArquivo(String ind, int x, int y) {
         this.index = ind;
-        this.x = x-1;
-        this.y = y-1;
+        this.x = x - 1;
+        this.y = y - 1;
         m = new String[this.x][this.y];
     }
 
+    //metodo responsalve pela leitura do arquivo
     public void AbrirArquivo() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(index));
 
         while (br.ready()) {
-            String linha = br.readLine();
-            String lin[] = linha.split(";");
-            for(int i = 0; i < this.x; i++){
-                for(int j = 0; i < this.y; i++){
-                    this.m[i][j] = linha.split(";");
+            for (int i = 0; i < x; i++) {
+                linha = br.readLine();
+                for (int j = 0; j < y; j++) {
+                     teste = linha.split(";");
+                     m[i][j] = teste[j];
                 }
+            }
+        }
+        br.close();
+        for (int f = 0; f < 427; f++) {
+            for (int i = 0; i < 427; i++) {
+                System.out.println(m[f][i]);
             }
             
         }
-        br.close();
-        
     }
-    
-    public String[][] getMatriz(){
+
+    public String[][] getMatriz() {
         return this.m;
     }
 }
