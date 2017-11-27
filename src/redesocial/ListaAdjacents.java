@@ -5,20 +5,24 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ListaAdjacents{
+public class ListaAdjacents {
 
     private final String index;
     private final ArrayList<String> table;
-    private String[] column;
-    private String[][] matrix;
+    private final String[][] matrix;
+    private final int x;
+    private final int y;
     private int cont;
+    private String[] column;
 
-    //construtor para criação do objeto x e y são os indexes da matriz
-    public ListaAdjacents(String ind) {
+    //construtor para criação da matriz
+    public ListaAdjacents(String ind, int x, int y) {
         this.index = ind;
+        this.x = x;
+        this.y = y;
+        this.matrix = new String[this.x][this.y];
         this.table = new ArrayList<>();
         this.cont = 0;
-        this.matrix = new String[428][428];
     }
 
     //metodo responsalve pela leitura do arquivo
@@ -28,7 +32,7 @@ public class ListaAdjacents{
                 this.table.add(br.readLine());
             }
         }
-        
+
         //responsavel pela criação da matriz de adjacentes
         for (String line : this.table) {
             this.column = line.split(";");
@@ -38,6 +42,7 @@ public class ListaAdjacents{
             cont += 1;
         }
     }
+
     //retorna uma matriz de adjacentes
     public String[][] getListaAdjacentes() throws IOException {
         ListaAdjacents();

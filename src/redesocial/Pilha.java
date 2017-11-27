@@ -10,13 +10,13 @@ public class Pilha {
         this.tamanho = 0;
     }
 
-    void Empilha(String s) {
+    void Empilha(Vertice s) {
         Nodo n = new Nodo(s, this.topo);
         this.topo = n;
         this.tamanho++;
     }
 
-    public String Desempilha() {
+    public Vertice Desempilha() {
         Nodo aux = this.topo;
         this.topo = this.topo.getNext();
         this.tamanho--;
@@ -31,7 +31,7 @@ public class Pilha {
         return this.tamanho;
     }
 
-    public String topo() {
+    public Vertice topo() {
         return this.topo.getElement();
     }
 

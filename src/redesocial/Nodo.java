@@ -2,15 +2,15 @@ package redesocial;
 
 public class Nodo {
 
-    private String element;
+    private Vertice element;
     private Nodo next;
 
-    public Nodo(String s, Nodo n) {
+    public Nodo(Vertice s, Nodo n) {
         element = s;
         next = n;
     }
 
-    public String getElement() {
+    public Vertice getElement() {
         return element;
     }
 
@@ -18,7 +18,7 @@ public class Nodo {
         return next;
     }
 
-    public void setLEement(String newElement) {
+    public void setLEement(Vertice newElement) {
         element = newElement;
     }
 
