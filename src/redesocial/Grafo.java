@@ -6,6 +6,7 @@ public class Grafo {
 
     protected ArrayList<Vertice> v;
     protected ArrayList<Aresta> a;
+    protected String[][] aux;
 
     public Grafo() {
         this.v = new ArrayList();
@@ -22,7 +23,7 @@ public class Grafo {
 
     public Vertice searchVertice(int id) {
         for (Vertice v : this.v) {
-            if (v.getID()== id) {
+            if (v.getID() == id) {
                 return v;
             }
         }
@@ -32,6 +33,7 @@ public class Grafo {
     public void addVertice(int id, float peso) {
         v.add(new Vertice(id, peso));
     }
+
 
     public void addAresta(float peso, String id, int idv1, int idv2, boolean ori) {
         //Busca vertice v1
@@ -53,9 +55,19 @@ public class Grafo {
         for (Vertice vertice : v) {
             System.out.println("ID: " + vertice.getID() + " Peso: " + vertice.getPeso());
         }
-        System.out.println("Lista de arestas: ");
-        for (Aresta aresta : a) {
-            System.out.println("ID: " + aresta.getID() + " Peso: " + aresta.getPeso());
+        //impreção da lista de adjacentes ordenadas
+        System.out.println("\nLista de adjacentes: ");
+        int aux = 0;
+        
+        for (Vertice vertice : v) {
+            System.out.println("ID: " + vertice.getID());
+            System.out.printf("(" + vertice.getListaAdjacentes().size() + ") "
+                    + "Adjacentes: ");
+            for (Vertice adja : v.get(aux).getListaAdjacentes()) {
+                System.out.printf(" [" + adja.getID() + "],");
+            }
+            aux += 1;
+            System.out.println("\n");
         }
     }
 }

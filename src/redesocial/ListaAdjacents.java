@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class AbrirArquivo {
+public class ListaAdjacents{
 
     private final String index;
     private final ArrayList<String> table;
@@ -14,7 +14,7 @@ public class AbrirArquivo {
     private int cont;
 
     //construtor para criação do objeto x e y são os indexes da matriz
-    public AbrirArquivo(String ind) {
+    public ListaAdjacents(String ind) {
         this.index = ind;
         this.table = new ArrayList<>();
         this.cont = 0;
@@ -29,7 +29,7 @@ public class AbrirArquivo {
             }
         }
         
-        //responsavel pela criação da lista de adjacentes
+        //responsavel pela criação da matriz de adjacentes
         for (String line : this.table) {
             this.column = line.split(";");
             for (int i = 0; i < this.column.length; i++) {
@@ -38,7 +38,7 @@ public class AbrirArquivo {
             cont += 1;
         }
     }
-
+    //retorna uma matriz de adjacentes
     public String[][] getListaAdjacentes() throws IOException {
         ListaAdjacents();
         return matrix;
