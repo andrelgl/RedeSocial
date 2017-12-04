@@ -2,6 +2,12 @@ package redesocial;
 
 import java.io.IOException;
 
+/*
+*Trabalho feito pelos Alunos:
+*André Luiz Gomes Lages
+*Felipe Brito
+*/
+
 public class RedeSocial {
 
     public static void main(String[] args) throws IOException {
